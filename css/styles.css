@@ -1,0 +1,22 @@
+
+body {
+background-image:url('https://media.giphy.com/media/TIyJGNK325XGciFEnI/giphy.gif');
+background-size: cover;
+}
+
+.flavors {
+  display: none;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+ul {
+  color: red;
+}
