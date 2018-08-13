@@ -1,25 +1,26 @@
-$(document).ready(function(){
 
-  var flavors = ["rockyroad","chocolate","strawberry","cookiesandcream"];
+$(document).ready(function() {
 
-  flavors.forEach(function(flavor){
-    $(".flavors").slideDown();
-    $(".flavors ul").append('<li>' + flavor + '</li>');
-  });
+  var inputs = [];
 
-  var clickables = ["h1", "p", "ul"];
-  clickables.forEach(function(clickable){
-    $(clickable).click(function() {
-      alert("this is a " + clickable + " element");
-    });
-  });
+  $("#addList").click(function() {
+    var listInput = $("input#grocery").val();
+    if (listInput) {
+      inputs.push(listInput);
+      $("#initialList").text(inputs);
+    } else {
+      alert("Please enter valid item.");
+    }
+  })
 
-  // $("h1").click(function() {
-  //   alert("h1");
-  // });
-  // $("p").click(function() {
-  //   alert("p");
-  // });
-  // $("ul").click(function() {
-  //   alert("ul");
-  });
+  $("#inputBox").submit(function(event) {
+    $("#inputBox").slideUp();
+    inputs.sort();
+    inputs.forEach(function(input) {
+      upperInput = input.toUpperCase();
+      $("ul").append("<li>" + upperInput + "</li>")
+    })
+
+    event.preventDefault();
+  })
+})
